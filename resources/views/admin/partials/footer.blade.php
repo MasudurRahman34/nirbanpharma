@@ -1,3 +1,3 @@
 <footer class="footer">
-  <div class="text-center">&copy Nirban Trading</div>
+  <div class="text-center">&copy NirbanPharma</div>
 </footer>

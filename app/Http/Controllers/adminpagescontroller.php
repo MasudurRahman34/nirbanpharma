@@ -92,19 +92,19 @@ class adminpagescontroller extends Controller
             	$product->price= $request->price;
                 $product->Save();
 
-           if(count($request->image)>0){
-                foreach($request->image as $image){
-                //$image= $request->file('image');
-                $img=time().'.'.$image->getClientOriginalExtension();
-                $location= public_path('images/product/'.$img);
-                Image::make($image)->save($location);
+           // if(count($request->image)>0){
+           //      foreach($request->image as $image){
+           //      //$image= $request->file('image');
+           //      $img=time().'.'.$image->getClientOriginalExtension();
+           //      $location= public_path('images/product/'.$img);
+           //      Image::make($image)->save($location);
 
-                $productImage= new productImage;
-                $productImage->product_id= $product->id;
-                $productImage->image=$img;
-                $productImage->Save();
-                }
-            }
+           //      $productImage= new productImage;
+           //      $productImage->product_id= $product->id;
+           //      $productImage->image=$img;
+           //      $productImage->Save();
+           //      }
+           //  }
             
                
             return redirect()->route('admin.product.manage');

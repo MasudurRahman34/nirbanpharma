@@ -36,21 +36,13 @@
                   <input type="number" name="quantity" class="form-control" value="{{$product->quantity}}">
                 </div>
                  <div class="row">
+                @foreach ($product->images as $img)
+                    {{-- expr --}}
+                 
                   <div class="col-md-4 form-group">
-                  <input type="file" name="image[]" class="form-control">
+                  <input type="file" name="image[]" value="{{$img->image}}" class="form-control">
                 </div>
-               <div class="col-md-4">
-                  <input type="file" name="image[]" class="form-control">
-                </div>
-                <div class="col-md-4">
-                  <input type="file" name="image[]" class="form-control">
-                </div>
-                <div class="col-md-4">
-                  <input type="file" name="image[]" class="form-control">
-                </div>
-                <div class="col-md-4">
-                  <input type="file" name="image[]" class="form-control">
-                </div>
+                @endforeach
               </div>
             
               {{--   <div class="form-group">

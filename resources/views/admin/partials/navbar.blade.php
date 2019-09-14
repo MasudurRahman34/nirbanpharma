@@ -9,7 +9,7 @@
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="#" class="nav-link">Schedule
               <span class="badge badge-primary ml-1">New</span>
             </a>
@@ -21,10 +21,10 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="mdi mdi-bookmark-plus-outline"></i>Score</a>
-          </li>
+          </li> --}}
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
+          {{-- <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="mdi mdi-file-document-box"></i>
               <span class="count">7</span>
@@ -78,20 +78,19 @@
                 </div>
               </a>
             </div>
-          </li>
+          </li> --}}
           <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+           {{--  <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="mdi mdi-bell"></i>
               <span class="count">4</span>
-            </a>
+            </a> --}}
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <a class="dropdown-item">
-                <p class="mb-0 font-weight-normal float-left">You have 4 new notifications
-                </p>
+             {{--  <a class="dropdown-item">
+                
                 <span class="badge badge-pill badge-warning float-right">View all</span>
-              </a>
+              </a> --}}
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
+             {{--  <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
                   <div class="preview-icon bg-success">
                     <i class="mdi mdi-alert-circle-outline mx-0"></i>
@@ -103,7 +102,7 @@
                     Just now
                   </p>
                 </div>
-              </a>
+              </a> --}}
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
@@ -111,12 +110,12 @@
                     <i class="mdi mdi-comment-text-outline mx-0"></i>
                   </div>
                 </div>
-                <div class="preview-item-content">
+                {{-- <div class="preview-item-content">
                   <h6 class="preview-subject font-weight-medium text-dark">Settings</h6>
                   <p class="font-weight-light small-text">
                     Private message
                   </p>
-                </div>
+                </div> --}}
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
@@ -125,18 +124,18 @@
                     <i class="mdi mdi-email-outline mx-0"></i>
                   </div>
                 </div>
-                <div class="preview-item-content">
+               {{--  <div class="preview-item-content">
                   <h6 class="preview-subject font-weight-medium text-dark">New user registration</h6>
                   <p class="font-weight-light small-text">
                     2 days ago
                   </p>
-                </div>
+                </div> --}}
               </a>
             </div>
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, Kawsar Hossain !</span>
+              <span class="profile-text">Hello, {{ Auth::user()->name }} !</span>
               <img class="img-xs rounded-circle" src="{{ asset('images/faces/face1.jpg') }}" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -154,17 +153,23 @@
                 </div>
               </a>
               <a class="dropdown-item mt-2">
-                Manage Accounts
+               
               </a>
               <a class="dropdown-item">
-                Change Password
+               
               </a>
-              <a class="dropdown-item">
-                Check Inbox
+              <a class="dropdown-item" href="{{ route('register') }}" >
+                New admin Register !!
               </a>
-              <a class="dropdown-item">
-                Sign Out
-              </a>
+              <a class="text-dark dropdown-item" href="{{ route('logout') }}"
+                                  onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                                  Logout
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  {{ csrf_field() }}
+                              </form>
             </div>
           </li>
         </ul>
